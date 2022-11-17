@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "awcodes/filament-table-repeater": "*",
+        "awcodes/filament-curator": "dev-main",
         "awcodes/filament-tiptap-editor": "*",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
@@ -73,7 +73,7 @@
         },
         {
             "type": "path",
-            "url": "~/Sites/packages/filament-table-repeater"
+            "url": "~/Sites/packages/filament-curator"
         }
     ]
 }

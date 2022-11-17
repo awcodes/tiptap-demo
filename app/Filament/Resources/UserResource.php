@@ -7,14 +7,12 @@ use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Filament\Resources\UserResource\Pages\ListUsers;
 use App\Filament\Resources\UserResource\RelationManagers\PostsRelationManager;
 use App\Models\User;
-use Awcodes\FilamentTableRepeater\Components\TableRepeater;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use FilamentCurator\Forms\Components\MediaPicker;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Facades\Hash;
 
@@ -50,20 +48,11 @@ class UserResource extends Resource
                             ->dehydrateStateUsing(function ($state) {
                                 return Hash::make($state);
                             }),
-//                        TiptapEditor::make('bio')
-//                            ->columnSpan('full'),
-                        TableRepeater::make('social')
-                            ->cloneable()
-                            ->schema([
-                                Select::make('platform')
-                                    ->disableLabel()
-                                    ->options(['facebook' => 'Facebook', 'twitter' => 'Twitter', 'instagram' => 'Instagram']),
-                                TextInput::make('url')
-                                    ->disableLabel(),
-                                TextInput::make('handle')
-                                    ->disableLabel(),
-                            ])
-                            ->columnSpan('full')
+                        TiptapEditor::make('bio')
+                            ->columnSpan('full'),
+                        MediaPicker::make('avatar_id')
+                            ->label('Avatar')
+                            ->columnSpan('full'),
                     ])->columns(['md' => 2]),
 
             ]);

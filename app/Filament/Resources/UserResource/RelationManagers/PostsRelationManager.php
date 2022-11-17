@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\UserResource\RelationManagers;
 
 use Filament\Forms;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\Textarea;
 use Filament\Resources\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
@@ -23,6 +25,15 @@ class PostsRelationManager extends RelationManager
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->columnSpan('full')
+                    ->suffixAction(Action::make('testaction')
+                        ->icon('heroicon-o-plus')
+                        ->modalHeading(__('filament-tiptap-editor::source-modal.heading'))
+                        ->form([
+                            TextArea::make('source')
+                                ->label(__('filament-tiptap-editor::source-modal.labels.source'))
+                                ->rows(10),
+                        ])
+                        ->action(fn () => dd('test')))
                     ->required(),
                 TiptapEditor::make('content')
                     ->columnSpan('full')

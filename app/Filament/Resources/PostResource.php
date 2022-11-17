@@ -24,8 +24,10 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title'),
-                TiptapEditor::make('content'),
+                Forms\Components\TextInput::make('title')
+                    ->columnSpan('full'),
+                TiptapEditor::make('content')
+                    ->columnSpan('full'),
             ]);
     }
 
@@ -39,6 +41,7 @@ class PostResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
