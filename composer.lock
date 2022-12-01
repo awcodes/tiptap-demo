@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79a103f5b30728f9138ae48b7ed57d50",
+    "content-hash": "acadac83755e16603d42231756320dfc",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -76,11 +76,11 @@
         },
         {
             "name": "awcodes/filament-curator",
-            "version": "dev-main",
+            "version": "1.x-dev",
             "dist": {
                 "type": "path",
                 "url": "/Users/adam.weston/Sites/packages/filament-curator",
-                "reference": "4dac68e22026b93c650e1b7bfedb7b1f0a134baf"
+                "reference": "c06feaff46b8a72a7d99b88824aa1fb7df190f1c"
             },
             "require": {
                 "filament/filament": "^2.0",
@@ -134,11 +134,11 @@
         },
         {
             "name": "awcodes/filament-tiptap-editor",
-            "version": "1.x-dev",
+            "version": "2.x-dev",
             "dist": {
                 "type": "path",
                 "url": "/Users/adam.weston/Sites/packages/filament-tiptap-editor",
-                "reference": "36f5b12e061e56621ed93cc665a83770f561f3a1"
+                "reference": "d7e5a80d2c7a8a1e9cb09c6aee196d35fb16da20"
             },
             "require": {
                 "filament/filament": "^2.0",
@@ -180,6 +180,59 @@
                 "framework",
                 "laravel",
                 "tiptap"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "awcodes/filament-versions",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/Users/adam.weston/Sites/packages/filament-versions",
+                "reference": "3c8e0b5141a265e39a6911c58e735d1b985ffae4"
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "php": "^8.0.2",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "FilamentVersions\\FilamentVersionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FilamentVersions\\": "src/",
+                    "FilamentVersions\\Database\\Factories\\": "database/factories/",
+                    "FilamentVersions\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "FilamentVersions\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Weston",
+                    "email": "awcodes1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A mostly useless package to display framework versions at the bottom of the navigation panel.",
+            "keywords": [
+                "filament",
+                "framework",
+                "laravel"
             ],
             "transport-options": {
                 "relative": false
@@ -9073,7 +9126,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "awcodes/filament-curator": 20
+        "awcodes/filament-versions": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
