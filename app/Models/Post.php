@@ -12,6 +12,10 @@ class Post extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'content' => 'array'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

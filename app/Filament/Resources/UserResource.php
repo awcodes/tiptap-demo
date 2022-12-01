@@ -50,6 +50,7 @@ class UserResource extends Resource
                                 return Hash::make($state);
                             }),
                         TiptapEditor::make('bio')
+                            ->output(TiptapEditor::OUTPUT_JSON)
                             ->columnSpan('full'),
                         MediaPicker::make('avatar_id')
                             ->label('Avatar')
