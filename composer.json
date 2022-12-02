@@ -9,6 +9,7 @@
         "awcodes/filament-curator": "*",
         "awcodes/filament-tiptap-editor": "*",
         "awcodes/filament-versions": "*",
+        "awcodes/scribe": "dev-main",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
@@ -79,6 +80,10 @@
         {
             "type": "path",
             "url": "~/Sites/packages/filament-versions"
+        },
+        {
+            "type": "path",
+            "url": "~/Sites/packages/scribe"
         }
     ]
 }

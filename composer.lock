@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acadac83755e16603d42231756320dfc",
+    "content-hash": "28691de51591fa60bb9d9fa54a0cefd2",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -191,7 +191,7 @@
             "dist": {
                 "type": "path",
                 "url": "/Users/adam.weston/Sites/packages/filament-versions",
-                "reference": "3c8e0b5141a265e39a6911c58e735d1b985ffae4"
+                "reference": "9e210d1c6647c7103a4752070524bc4294dca139"
             },
             "require": {
                 "filament/filament": "^2.0",
@@ -233,6 +233,86 @@
                 "filament",
                 "framework",
                 "laravel"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "awcodes/scribe",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/Users/adam.weston/Sites/packages/scribe",
+                "reference": "34b178a80204ad5bb0acde77590622b650e99b74"
+            },
+            "require": {
+                "filament/filament": "^2.0",
+                "illuminate/contracts": "^9.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.13.5"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "pestphp/pest-plugin-livewire": "^1.0",
+                "pestphp/pest-plugin-parallel": "^0.3",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Awcodes\\Scribe\\ScribeServiceProvider"
+                    ],
+                    "aliases": {
+                        "Scribe": "Awcodes\\Scribe\\Facades\\Scribe"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Awcodes\\Scribe\\": "src",
+                    "Awcodes\\Scribe\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Awcodes\\Scribe\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "pint": [
+                    "vendor/bin/pint"
+                ],
+                "test:pest": [
+                    "vendor/bin/pest --parallel"
+                ],
+                "test": [
+                    "@test:pest",
+                    "@test:phpstan"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "awcodes",
+                    "email": "awcodes1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is my package scribe",
+            "homepage": "https://github.com/awcodes/scribe",
+            "keywords": [
+                "awcodes",
+                "laravel",
+                "scribe"
             ],
             "transport-options": {
                 "relative": false
@@ -9126,7 +9206,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "awcodes/filament-versions": 20
+        "awcodes/scribe": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

@@ -7,6 +7,7 @@ use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Filament\Resources\UserResource\Pages\ListUsers;
 use App\Filament\Resources\UserResource\RelationManagers\PostsRelationManager;
 use App\Models\User;
+use Awcodes\Scribe\Fields\Scribe;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -14,6 +15,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use FilamentCurator\Forms\Components\MediaPicker;
 use FilamentCurator\Tables\Columns\CuratorColumn;
+use FilamentTiptapEditor\Components\TiptapBlock;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Facades\Hash;
 
@@ -49,8 +51,17 @@ class UserResource extends Resource
                             ->dehydrateStateUsing(function ($state) {
                                 return Hash::make($state);
                             }),
-                        TiptapEditor::make('bio')
-                            ->output(TiptapEditor::OUTPUT_JSON)
+//                        TiptapEditor::make('bio')
+//                            ->output(TiptapEditor::OUTPUT_JSON)
+//                            ->blocks([
+//                                TiptapBlock::make('infographic')
+//                                    ->schema([
+//                                        Forms\Components\TextInput::make('title'),
+//                                        Forms\Components\FileUpload::make('image'),
+//                                    ])
+//                            ])
+//                            ->columnSpan('full'),
+                        Scribe::make('bio')
                             ->columnSpan('full'),
                         MediaPicker::make('avatar_id')
                             ->label('Avatar')
