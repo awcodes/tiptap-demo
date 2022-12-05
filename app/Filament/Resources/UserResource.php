@@ -51,17 +51,17 @@ class UserResource extends Resource
                             ->dehydrateStateUsing(function ($state) {
                                 return Hash::make($state);
                             }),
-//                        TiptapEditor::make('bio')
-//                            ->output(TiptapEditor::OUTPUT_JSON)
-//                            ->blocks([
-//                                TiptapBlock::make('infographic')
-//                                    ->schema([
-//                                        Forms\Components\TextInput::make('title'),
-//                                        Forms\Components\FileUpload::make('image'),
-//                                    ])
-//                            ])
-//                            ->columnSpan('full'),
-                        Scribe::make('bio')
+                        TiptapEditor::make('bio')
+                            ->output(TiptapEditor::OUTPUT_JSON)
+                            ->blocks([
+                                TiptapBlock::make('infographic')
+                                    ->schema([
+                                        Forms\Components\TextInput::make('title'),
+                                        Forms\Components\FileUpload::make('image'),
+                                    ])
+                            ])
+                            ->columnSpan('full'),
+                        Scribe::make('bio2')
                             ->columnSpan('full'),
                         MediaPicker::make('avatar_id')
                             ->label('Avatar')
