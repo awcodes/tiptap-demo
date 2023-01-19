@@ -3,7 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use FilamentCurator\Models\Media;
+use Awcodes\Curator\Models\Media;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -25,6 +25,7 @@ class User extends Authenticatable
         'email',
         'password',
         'bio',
+        'notes',
         'social',
         'avatar_id',
     ];
@@ -47,6 +48,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'bio' => 'array',
+        'notes' => 'array',
         'social' => 'array',
     ];
 

@@ -7,17 +7,19 @@ use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Filament\Resources\UserResource\Pages\ListUsers;
 use App\Filament\Resources\UserResource\RelationManagers\PostsRelationManager;
 use App\Models\User;
+use Awcodes\Scribe\Components\ScribeBlock;
 use Awcodes\Scribe\Fields\Scribe;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use FilamentCurator\Forms\Components\MediaPicker;
-use FilamentCurator\Tables\Columns\CuratorColumn;
+use Awcodes\Curator\Components\Forms\CuratorPicker;
+use Awcodes\Curator\Components\Tables\CuratorColumn;
 use FilamentTiptapEditor\Components\TiptapBlock;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Facades\Hash;
+use Awcodes\Constructor\Forms\Components\Constructor;
 
 class UserResource extends Resource
 {
@@ -51,21 +53,39 @@ class UserResource extends Resource
                             ->dehydrateStateUsing(function ($state) {
                                 return Hash::make($state);
                             }),
+                        Constructor::make('notes'),
                         TiptapEditor::make('bio')
                             ->output(TiptapEditor::OUTPUT_JSON)
-                            ->blocks([
-                                TiptapBlock::make('infographic')
-                                    ->schema([
-                                        Forms\Components\TextInput::make('title'),
-                                        Forms\Components\FileUpload::make('image'),
-                                    ])
-                            ])
+                            ->profile('simple')
                             ->columnSpan('full'),
-                        Scribe::make('bio2')
-                            ->columnSpan('full'),
-                        MediaPicker::make('avatar_id')
+//                        Scribe::make('notes')
+//                            ->blocks([
+//                                ScribeBlock::make('infographic')
+//                                    ->schema([
+//                                        Forms\Components\TextInput::make('title')->required(),
+//                                        Forms\Components\FileUpload::make('image'),
+//                                        Forms\Components\Textarea::make('notes'),
+//                                    ]),
+//                                ScribeBlock::make('grid')
+//                                    ->schema([
+//                                        Forms\Components\TextInput::make('grid_title'),
+//                                        Forms\Components\Textarea::make('grid_notes'),
+//                                    ])
+//                            ])
+//                            ->columnSpan('full'),
+                        CuratorPicker::make('avatar_id')
                             ->label('Avatar')
                             ->columnSpan('full'),
+                        Forms\Components\Repeater::make('images')
+                            ->schema([
+                                CuratorPicker::make('image')
+                                    ->directory('repeater-test')
+                                    ->maxSize(1024)
+                                    ->imageCropAspectRatio('16:9')
+                                    ->imageResizeTargetWidth('640')
+                                    ->imageResizeTargetHeight('360')
+
+                            ])
                     ])->columns(['md' => 2]),
 
             ]);
