@@ -53,7 +53,8 @@ class UserResource extends Resource
                             ->dehydrateStateUsing(function ($state) {
                                 return Hash::make($state);
                             }),
-                        Constructor::make('notes'),
+                        Constructor::make('notes')
+                            ->columnSpanFull(),
                         TiptapEditor::make('bio')
                             ->output(TiptapEditor::OUTPUT_JSON)
                             ->profile('simple')
