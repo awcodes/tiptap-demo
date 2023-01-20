@@ -20,6 +20,7 @@ use FilamentTiptapEditor\Components\TiptapBlock;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Facades\Hash;
 use Awcodes\Constructor\Forms\Components\Constructor;
+use Illuminate\Support\Facades\Vite;
 
 class UserResource extends Resource
 {
@@ -53,11 +54,12 @@ class UserResource extends Resource
                             ->dehydrateStateUsing(function ($state) {
                                 return Hash::make($state);
                             }),
-                        Constructor::make('notes')
-                            ->columnSpanFull(),
+                        // Constructor::make('notes')
+                        //     ->columnSpanFull(),
                         TiptapEditor::make('bio')
                             ->output(TiptapEditor::OUTPUT_JSON)
                             ->profile('simple')
+                            ->registerTool(id: 'Hurdle', name: 'Hurdle', view: 'tools.hurdle', source: Vite::asset('resources/js/tools/hurdle.js'))
                             ->columnSpan('full'),
 //                        Scribe::make('notes')
 //                            ->blocks([

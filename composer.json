@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "awcodes/filament-constructor": "*",
         "awcodes/filament-curator": "*",
         "awcodes/filament-tiptap-editor": "*",
         "awcodes/filament-versions": "*",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3118afaa6a0970ec4474f993df576cf3",
+    "content-hash": "8bedfb8a745813d4b3c506f2f1b8d4a4",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -75,92 +75,12 @@
             "time": "2022-07-27T08:16:36+00:00"
         },
         {
-            "name": "awcodes/filament-constructor",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "/Users/adam.weston/Sites/packages/filament-constructor",
-                "reference": "b6f36c7a6b40a787bd9b0883a5733f7f92f16357"
-            },
-            "require": {
-                "filament/filament": "^2.0",
-                "illuminate/contracts": "^9.0",
-                "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.13.5"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.0",
-                "nunomaduro/collision": "^6.0",
-                "orchestra/testbench": "^7.0",
-                "pestphp/pest": "^1.21",
-                "pestphp/pest-plugin-laravel": "^1.1",
-                "pestphp/pest-plugin-livewire": "^1.0",
-                "pestphp/pest-plugin-parallel": "^0.3",
-                "phpunit/phpunit": "^9.5",
-                "spatie/laravel-ray": "^1.26"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Awcodes\\Constructor\\ConstructorServiceProvider"
-                    ],
-                    "aliases": {
-                        "Constructor": "Awcodes\\Constructor\\Facades\\Constructor"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Awcodes\\Constructor\\": "src",
-                    "Awcodes\\Constructor\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Awcodes\\Constructor\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "pint": [
-                    "vendor/bin/pint"
-                ],
-                "test:pest": [
-                    "vendor/bin/pest --parallel"
-                ],
-                "test": [
-                    "@test:pest",
-                    "@test:phpstan"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "awcodes",
-                    "email": "awcodes1@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This is my package filament-constructor",
-            "homepage": "https://github.com/awcodes/filament-constructor",
-            "keywords": [
-                "awcodes",
-                "filament-constructor",
-                "laravel"
-            ],
-            "transport-options": {
-                "relative": false
-            }
-        },
-        {
             "name": "awcodes/filament-curator",
             "version": "2.x-dev",
             "dist": {
                 "type": "path",
                 "url": "/Users/adam.weston/Sites/packages/filament-curator",
-                "reference": "98db0e847ee10e9486fdad9cc860743a1152db99"
+                "reference": "717145b36ac6199b2b8b4c6ea6eac1b4451b3067"
             },
             "require": {
                 "filament/filament": "^2.0",
