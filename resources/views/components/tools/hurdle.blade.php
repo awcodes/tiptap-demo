@@ -1,19 +1,25 @@
 @php
-    $colors = ['gray_light', 'gray', 'gray_dark', 'primary', 'secondary', 'tertiary', 'accent'];
+    $colors = [
+        'gray_light' => 'Gray - Light',
+        'gray' => 'Gray',
+        'gray_dark' => 'Gray - Dark',
+        'primary' => 'Primary',
+        'secondary' => 'Secondary',
+        'tertiary' => 'Tertiary',
+        'accent' => 'Accent',
+    ];
 @endphp
 
 <x-filament-tiptap-editor::dropdown-button
-        label="{{ __('filament-tiptap-editor::editor.hurdle.label') }}"
-        active="'hurdle'"
-        icon="hurdle"
+    label="Hurdle"
+    active="'hurdle'"
+    icon="hurdle"
 >
-    @foreach($colors as $color)
+    @foreach($colors as $key => $label)
         <x-filament-tiptap-editor::dropdown-button-item
-                action="editor().chain().focus().setHurdle({ color: '{{ $color }}' }).run()"
+            action="editor().chain().focus().setHurdle({ color: '{{ $key }}' }).run()"
         >
-            {{ __('filament-tiptap-editor::editor.hurdle.colors.' . $color) }}
+            {{ $label }}
         </x-filament-tiptap-editor::dropdown-button-item>
     @endforeach
 </x-filament-tiptap-editor::dropdown-button>
-
-@vite('resources/js/tools/hurdle.js')

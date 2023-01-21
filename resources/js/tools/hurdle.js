@@ -62,3 +62,7 @@ const Hurdle = Node.create({
         };
     },
 });
+
+document.addEventListener("tiptapeditor:init", () => {
+    window.registerTiptapEditorExtension('hurdle', Hurdle)
+});

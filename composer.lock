@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8bedfb8a745813d4b3c506f2f1b8d4a4",
+    "content-hash": "f1f00b57f1bd9810380b9ebb924cdeea",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -79,7 +79,7 @@
             "version": "2.x-dev",
             "dist": {
                 "type": "path",
-                "url": "/Users/adam.weston/Sites/packages/filament-curator",
+                "url": "/Users/adam.weston/Dev/packages/filament-curator",
                 "reference": "717145b36ac6199b2b8b4c6ea6eac1b4451b3067"
             },
             "require": {
@@ -169,8 +169,8 @@
             "version": "2.x-dev",
             "dist": {
                 "type": "path",
-                "url": "/Users/adam.weston/Sites/packages/filament-tiptap-editor",
-                "reference": "bb5af588f9d404a1d7df9dda277046c4eb8df1f0"
+                "url": "/Users/adam.weston/Dev/packages/filament-tiptap-editor",
+                "reference": "10cbad06ec18f835d77e1efd7b421a66ced1b0ef"
             },
             "require": {
                 "filament/filament": "^2.0",
@@ -223,8 +223,8 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "/Users/adam.weston/Sites/packages/filament-versions",
-                "reference": "9e210d1c6647c7103a4752070524bc4294dca139"
+                "url": "/Users/adam.weston/Dev/packages/filament-versions",
+                "reference": "3c8e0b5141a265e39a6911c58e735d1b985ffae4"
             },
             "require": {
                 "filament/filament": "^2.0",
@@ -273,27 +273,30 @@
         },
         {
             "name": "awcodes/scribe",
-            "version": "dev-editorjs",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "/Users/adam.weston/Sites/packages/scribe",
-                "reference": "607638ee2cc08d976c25e9a3ee609d11443f412c"
+                "url": "/Users/adam.weston/Dev/packages/scribe",
+                "reference": "b21880d166815176035afc50660feb444f3a41da"
             },
             "require": {
-                "filament/filament": "^2.0",
+                "filament/filament": "*",
                 "illuminate/contracts": "^9.0",
                 "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.13.5",
-                "ueberdosis/tiptap-php": "^1.1"
+                "spatie/laravel-package-tools": "^1.13.5"
             },
             "require-dev": {
                 "laravel/pint": "^1.0",
                 "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0.1",
                 "orchestra/testbench": "^7.0",
                 "pestphp/pest": "^1.21",
                 "pestphp/pest-plugin-laravel": "^1.1",
                 "pestphp/pest-plugin-livewire": "^1.0",
                 "pestphp/pest-plugin-parallel": "^0.3",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
                 "phpunit/phpunit": "^9.5",
                 "spatie/laravel-ray": "^1.26"
             },
@@ -326,6 +329,9 @@
                 "test:pest": [
                     "vendor/bin/pest --parallel"
                 ],
+                "test:phpstan": [
+                    "vendor/bin/phpstan analyse"
+                ],
                 "test": [
                     "@test:pest",
                     "@test:phpstan"
@@ -336,18 +342,22 @@
             ],
             "authors": [
                 {
-                    "name": "awcodes",
+                    "name": "Adam Weston",
                     "email": "awcodes1@gmail.com",
                     "role": "Developer"
                 }
             ],
-            "description": "This is my package scribe",
+            "description": "Just another WYSIWYG editor, but for Filament",
             "homepage": "https://github.com/awcodes/scribe",
             "keywords": [
                 "awcodes",
                 "laravel",
                 "scribe"
             ],
+            "support": {
+                "issues": "https://github.com/awcodes/scribe/issues",
+                "source": "https://github.com/awcodes/scribe"
+            },
             "transport-options": {
                 "relative": false
             }
@@ -9569,5 +9579,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

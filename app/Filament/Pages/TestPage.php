@@ -132,7 +132,7 @@ class TestPage extends Page
     protected function getFormSchema(): array
     {
         return [
-            Scribe::make('scribe'),
+//            Scribe::make('scribe'),
             TiptapEditor::make('default'),
             TiptapEditor::make('simple')
                 ->profile('simple'),

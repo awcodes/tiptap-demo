@@ -59,7 +59,6 @@ class UserResource extends Resource
                         TiptapEditor::make('bio')
                             ->output(TiptapEditor::OUTPUT_JSON)
                             ->profile('simple')
-                            ->registerTool(id: 'Hurdle', name: 'Hurdle', view: 'tools.hurdle', source: Vite::asset('resources/js/tools/hurdle.js'))
                             ->columnSpan('full'),
 //                        Scribe::make('notes')
 //                            ->blocks([

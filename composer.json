@@ -71,23 +71,23 @@
     "repositories": [
         {
             "type": "path",
-            "url": "~/Sites/packages/filament-tiptap-editor"
+            "url": "~/Dev/packages/filament-tiptap-editor"
         },
         {
             "type": "path",
-            "url": "~/Sites/packages/filament-curator"
+            "url": "~/Dev/packages/filament-curator"
         },
         {
             "type": "path",
-            "url": "~/Sites/packages/filament-versions"
+            "url": "~/Dev/packages/filament-versions"
         },
         {
             "type": "path",
-            "url": "~/Sites/packages/scribe"
+            "url": "~/Dev/packages/scribe"
         },
         {
             "type": "path",
-            "url": "~/Sites/packages/filament-constructor"
+            "url": "~/Dev/packages/filament-constructor"
         }
     ]
 }
