@@ -12,7 +12,7 @@
 
 <x-filament-tiptap-editor::dropdown-button
     label="Hurdle"
-    active="'hurdle'"
+    active="hurdle"
     icon="hurdle"
 >
     @foreach($colors as $key => $label)

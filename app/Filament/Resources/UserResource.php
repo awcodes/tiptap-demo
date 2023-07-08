@@ -7,23 +7,21 @@ use App\Filament\Resources\UserResource\Pages\EditUser;
 use App\Filament\Resources\UserResource\Pages\ListUsers;
 use App\Filament\Resources\UserResource\RelationManagers\PostsRelationManager;
 use App\Models\User;
-use Awcodes\Scribe\Components\ScribeBlock;
-use Awcodes\Scribe\Fields\Scribe;
 use Filament\Forms;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Awcodes\Curator\Components\Forms\CuratorPicker;
 use Awcodes\Curator\Components\Tables\CuratorColumn;
-use FilamentTiptapEditor\Components\TiptapBlock;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Facades\Hash;
-use Awcodes\Constructor\Forms\Components\Constructor;
-use Illuminate\Support\Facades\Vite;
 
 class UserResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = User::class;
 
     protected static ?string $label = 'User';
@@ -33,6 +31,11 @@ class UserResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getTranslatableLocales(): array
+    {
+        return ['en', 'es', 'fr'];
+    }
 
     public static function form(Form $form): Form
     {
@@ -54,27 +57,10 @@ class UserResource extends Resource
                             ->dehydrateStateUsing(function ($state) {
                                 return Hash::make($state);
                             }),
-                        // Constructor::make('notes')
-                        //     ->columnSpanFull(),
                         TiptapEditor::make('bio')
                             ->output(TiptapEditor::OUTPUT_JSON)
                             ->profile('simple')
                             ->columnSpan('full'),
-//                        Scribe::make('notes')
-//                            ->blocks([
-//                                ScribeBlock::make('infographic')
-//                                    ->schema([
-//                                        Forms\Components\TextInput::make('title')->required(),
-//                                        Forms\Components\FileUpload::make('image'),
-//                                        Forms\Components\Textarea::make('notes'),
-//                                    ]),
-//                                ScribeBlock::make('grid')
-//                                    ->schema([
-//                                        Forms\Components\TextInput::make('grid_title'),
-//                                        Forms\Components\Textarea::make('grid_notes'),
-//                                    ])
-//                            ])
-//                            ->columnSpan('full'),
                         CuratorPicker::make('avatar_id')
                             ->label('Avatar')
                             ->columnSpan('full'),

@@ -54,13 +54,15 @@ return [
             'oembed',
             'table',
             'grid',
+            'grid-builder',
             'details',
+            'hurdle',
             '|',
             'code',
             'code-block',
             'source',
         ],
-        'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media', 'hurdle'],
+        'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media'],
         'barebone' => ['bold', 'italic', 'link', 'bullet-list', 'ordered-list'],
     ],
 
@@ -71,13 +73,13 @@ return [
     |
     */
     'extensions' => [
-        [
-            'id' => 'hurdle',
-            'name' => 'Hurdle',
-            'view' => 'tools.hurdle',
-            'source' => 'resources/js/tools/hurdle.js',
-            'builder' => 'vite',
-        ]
+//        [
+//            'id' => 'hurdle',
+//            'name' => 'Hurdle',
+//            'view' => 'tools.hurdle',
+//            'source' => 'resources/js/tools/hurdle.js',
+//            'builder' => 'vite',
+//        ]
     ],
 
     /*
@@ -86,8 +88,8 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
-//    'media_action' => FilamentCurator\Actions\MediaAction::class,
+//    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
+    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
     'link_action' => FilamentTiptapEditor\Actions\LinkAction::class,
 
     /*

@@ -27,6 +27,7 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->columnSpan('full'),
                 TiptapEditor::make('content')
+                    ->output('json')
                     ->columnSpan('full'),
             ]);
     }

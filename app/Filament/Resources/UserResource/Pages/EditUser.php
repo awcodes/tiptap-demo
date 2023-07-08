@@ -2,13 +2,15 @@
 
 namespace App\Filament\Resources\UserResource\Pages;
 
-use Filament\Pages\Actions\Action;
+use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use App\Filament\Resources\UserResource;
 use FilamentTiptapEditor\TiptapEditor;
 
 class EditUser extends EditRecord
 {
+    use EditRecord\Concerns\Translatable;
+
     protected static string $resource = UserResource::class;
 
     protected function getActions(): array
@@ -16,6 +18,7 @@ class EditUser extends EditRecord
         return array_merge(
             parent::getActions(),
             [
+                Actions\LocaleSwitcher::make(),
 //                Action::make('tiptapmodaltest')
 //                    ->label('Tiptap Modal Test')
 //                    ->modalHeading('Tiptap Modal Test')
@@ -29,6 +32,7 @@ class EditUser extends EditRecord
 
     protected function beforeSave(): void
     {
-//        dd($this->form->getState());
+//        $data = $this->form->getState();
+//        dd($data);
     }
 }
