@@ -63,7 +63,7 @@ return [
             'source',
         ],
         'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media'],
-        'barebone' => ['bold', 'italic', 'link', 'bullet-list', 'ordered-list'],
+        'minimal' => ['bold', 'italic', 'link', 'bullet-list', 'ordered-list'],
     ],
 
     /*
@@ -88,8 +88,8 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-//    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
-    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
+    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
+//    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
     'link_action' => FilamentTiptapEditor\Actions\LinkAction::class,
 
     /*
@@ -98,13 +98,10 @@ return [
     |--------------------------------------------------------------------------
     |
     | Which output format should be the default.
-    | Available formats:
-    | > TiptapEditor::OUTPUT_HTML | TiptapEditor::OUTPUT_JSON | TiptapEditor::OUTPUT_TEXT
-    | > or only as string: 'html', 'json', 'text'
     |
     | See: https://tiptap.dev/guide/output
     */
-    'output' => FilamentTiptapEditor\TiptapEditor::OUTPUT_HTML,
+    'output' => FilamentTiptapEditor\Enums\TiptapOutput::Html,
 
     /*
     |--------------------------------------------------------------------------

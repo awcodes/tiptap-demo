@@ -9,12 +9,10 @@ use App\Filament\Resources\UserResource\RelationManagers\PostsRelationManager;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Resources\Concerns\Translatable;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 use Filament\Tables;
-use Awcodes\Curator\Components\Forms\CuratorPicker;
-use Awcodes\Curator\Components\Tables\CuratorColumn;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Facades\Hash;
 
@@ -58,22 +56,8 @@ class UserResource extends Resource
                                 return Hash::make($state);
                             }),
                         TiptapEditor::make('bio')
-                            ->output(TiptapEditor::OUTPUT_JSON)
                             ->profile('simple')
                             ->columnSpan('full'),
-                        CuratorPicker::make('avatar_id')
-                            ->label('Avatar')
-                            ->columnSpan('full'),
-                        Forms\Components\Repeater::make('images')
-                            ->schema([
-                                CuratorPicker::make('image')
-                                    ->directory('repeater-test')
-                                    ->maxSize(1024)
-                                    ->imageCropAspectRatio('16:9')
-                                    ->imageResizeTargetWidth('640')
-                                    ->imageResizeTargetHeight('360')
-
-                            ])
                     ])->columns(['md' => 2]),
 
             ]);
@@ -83,10 +67,7 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                CuratorColumn::make('avatar')->rounded()->size(32),
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('email'),
             ])
             ->filters([

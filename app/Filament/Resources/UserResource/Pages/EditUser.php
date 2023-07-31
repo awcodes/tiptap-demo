@@ -5,7 +5,7 @@ namespace App\Filament\Resources\UserResource\Pages;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 use App\Filament\Resources\UserResource;
-use FilamentTiptapEditor\TiptapEditor;
+//use FilamentTiptapEditor\TiptapEditor;
 
 class EditUser extends EditRecord
 {
@@ -13,7 +13,7 @@ class EditUser extends EditRecord
 
     protected static string $resource = UserResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return array_merge(
             parent::getActions(),

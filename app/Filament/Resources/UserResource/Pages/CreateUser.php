@@ -12,7 +12,7 @@ class CreateUser extends CreateRecord
 
     protected static string $resource = UserResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return array_merge(
             parent::getActions(),
