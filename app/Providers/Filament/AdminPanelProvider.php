@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->login(\App\Filament\Pages\Auth\Login::class)
             ->favicon('https://res.cloudinary.com/aw-codes/image/upload/v1641838624/dartology/icon.svg')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Sky,
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->plugins([
