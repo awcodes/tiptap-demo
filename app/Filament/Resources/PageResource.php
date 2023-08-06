@@ -13,12 +13,19 @@ use Filament\Tables\Table;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Pboivin\FilamentPeek\Forms\Components\PreviewLink;
 
 class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function contentField()
+    {
+        return TiptapEditor::make('content')
+            ->columnSpanFull();
+    }
 
     public static function form(Form $form): Form
     {
@@ -27,7 +34,12 @@ class PageResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required(),
 
-                TiptapEditor::make('content'),
+                PreviewLink::make()
+                    ->label('Preview Content')
+                    ->builderPreview('content')
+                    ->alignRight(),
+
+                self::contentField(),
             ])->columns(1);
     }
 
