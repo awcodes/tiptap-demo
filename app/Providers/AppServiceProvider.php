@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        config()->set('filament-peek.builderEditor.sidebarInitialWidth', '50vw');
     }
 }
