@@ -9,6 +9,7 @@ export default defineConfig({
                 "resources/css/filament/admin/theme.css",
                 "resources/js/app.js",
                 "resources/js/tools/hurdle.js",
+                "resources/js/lexical-test.js",
             ],
             refresh: true,
         }),
