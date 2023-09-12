@@ -13,10 +13,14 @@ use Filament\Tables\Table;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Pboivin\FilamentPeek\Forms\Actions\InlinePreviewAction;
 use Pboivin\FilamentPeek\Forms\Components\PreviewLink;
+use Pboivin\FilamentPeek\Pages\Concerns\HasPreviewModal;
 
 class PageResource extends Resource
 {
+    use HasPreviewModal;
+
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -33,12 +37,11 @@ class PageResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required(),
-
-                PreviewLink::make()
-                    ->label('Preview Content')
-                    ->builderPreview('content')
-                    ->alignRight(),
-
+                Forms\Components\Actions::make([
+                    InlinePreviewAction::make()
+                        ->label('Preview Content')
+                        ->builderPreview('content'),
+                ]),
                 self::contentField(),
             ])->columns(1);
     }
