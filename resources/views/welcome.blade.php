@@ -1,5 +1,5 @@
 @php
-    $post = \App\Models\Post::first();
+    $page = \App\Models\Page::first();
 @endphp
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
         @vite(['resources/css/app.css'])
     </head>
     <body class="prose prose-invert antialiased text-white bg-gray-900 py-12 max-w-6xl mx-auto sm:px-6 lg:px-8">
-        <h1>{{ $post->title }}</h1>
-        {!! tiptap_converter()->asHTML($post->content) !!}
+        <h1>{{ $page->title }}</h1>
+        {!! tiptap_converter()->asHTML($page->content) !!}
     </body>
 </html>
