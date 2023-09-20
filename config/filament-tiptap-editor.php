@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'direction' => 'ltr',
+    'max_content_width' => '5xl',
+
     /*
     |--------------------------------------------------------------------------
     | Theme overrides
@@ -28,58 +31,19 @@ return [
     */
     'profiles' => [
         'default' => [
-            'heading',
-            'bullet-list',
-            'ordered-list',
-            'checked-list',
-            'blockquote',
-            'hr',
-            '|',
-            'bold',
-            'italic',
-            'strike',
-            'underline',
-            'superscript',
-            'subscript',
-            'lead',
-            'small',
-            'color',
-            'highlight',
-            'align-left',
-            'align-center',
-            'align-right',
-            '|',
-            'link',
-            'media',
-            'oembed',
-            'table',
-            'grid',
-            'grid-builder',
-            'details',
-            'hurdle',
-            '|',
-            'code',
-            'code-block',
-            'source',
+            'heading', 'bullet-list', 'ordered-list', 'checked-list', 'blockquote', 'hr',
+            'bold', 'italic', 'strike', 'underline', 'superscript', 'subscript', 'lead', 'small', 'align-left', 'align-center', 'align-right',
+            'link', 'media', 'oembed', 'table', 'grid-builder', 'details', 'hero',
+            'code', 'code-block', 'source',
         ],
-        'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media'],
-        'minimal' => ['bold', 'italic', 'link', 'bullet-list', 'ordered-list'],
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Extensions
-    |--------------------------------------------------------------------------
-    |
-    */
-    'extensions' => [
-//        [
-//            'id' => 'hurdle',
-//            'name' => 'Hurdle',
-//            'view' => 'tools.hurdle',
-//            'source' => 'resources/js/tools/hurdle.js',
-//            'builder' => 'vite',
-//        ]
+        'simple' => [
+            'heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list',
+            'bold', 'italic', 'lead', 'small',
+            'link', 'media',
+        ],
+        'minimal' => [
+            'bold', 'italic', 'link', 'bullet-list', 'ordered-list',
+        ],
     ],
 
     /*
@@ -88,8 +52,8 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
-//    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
+    //    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
+    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
     'link_action' => FilamentTiptapEditor\Actions\LinkAction::class,
 
     /*
@@ -97,7 +61,7 @@ return [
     | Output format
     |--------------------------------------------------------------------------
     |
-    | Which output format should be the default.
+    | Which output format should be stored in the Database.
     |
     | See: https://tiptap.dev/guide/output
     */
@@ -124,4 +88,31 @@ return [
     'image_crop_aspect_ratio' => null,
     'image_resize_target_width' => null,
     'image_resize_target_height' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Menus
+    |--------------------------------------------------------------------------
+    |
+    */
+    'disable_floating_menus' => false,
+    'disable_bubble_menus' => false,
+    'floating_menu_tools' => ['media', 'grid-builder', 'details', 'table', 'oembed', 'code-block'],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Extensions
+    |--------------------------------------------------------------------------
+    |
+    */
+    'extensions_script' => 'resources/js/tiptap/extensions.js',
+    'extensions_styles' => 'resources/css/tiptap/extensions.css',
+    'extensions' => [
+        [
+            'id' => 'hero',
+            'name' => 'Hero',
+            'button' => 'tools.hero',
+            'parser' => \App\TiptapExtensions\Hero::class,
+        ],
+    ],
 ];

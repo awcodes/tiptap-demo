@@ -1,0 +1,63 @@
+.tiptap-content {
+    .hero-block {
+        width: 100%;
+        max-width: 100vw;
+        padding-block: 1rem;
+        background-color: rgb(var(--gray-800));
+        position: relative;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            background-color: inherit;
+        }
+
+        &::before {
+            left: -100%;
+        }
+
+        &::after {
+            right: -100%;
+        }
+
+        &[data-color="gray_light"] {
+            color: rgb(var(--gray-900));
+            background-color: rgb(var(--gray-300));
+        }
+
+        &[data-color="gray"] {
+            color: white;
+            background-color: rgb(var(--gray-500));
+        }
+
+        &[data-color="gray_dark"] {
+            color: white;
+            background-color: rgb(var(--gray-800));
+        }
+
+        &[data-color="primary"] {
+            color: rgb(var(--gray-900));
+            background-color: rgb(var(--primary-500));
+        }
+
+        &[data-color="secondary"] {
+            color: rgb(var(--gray-900));
+            background-color: rgb(var(--warning-500));
+        }
+
+        &[data-color="tertiary"] {
+            color: white;
+            background-color: rgb(var(--success-500));
+        }
+
+        &[data-color="accent"] {
+            color: white;
+            background-color: rgb(var(--danger-500));
+        }
+    }
+}
