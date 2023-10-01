@@ -31,19 +31,13 @@ return [
     */
     'profiles' => [
         'default' => [
-            'heading', 'bullet-list', 'ordered-list', 'checked-list', 'blockquote', 'hr',
-            'bold', 'italic', 'strike', 'underline', 'superscript', 'subscript', 'lead', 'small', 'align-left', 'align-center', 'align-right',
-            'link', 'media', 'oembed', 'table', 'grid-builder', 'details', 'hero',
-            'code', 'code-block', 'source',
+            'heading', 'bullet-list', 'ordered-list', 'checked-list', 'blockquote', 'hr', '|',
+            'bold', 'italic', 'strike', 'underline', 'superscript', 'subscript', 'lead', 'small', 'color', 'highlight', 'align-left', 'align-center', 'align-right', '|',
+            'link', 'media', 'oembed', 'table', 'grid-builder', 'details', '|', 'code', 'code-block', 'source',
         ],
-        'simple' => [
-            'heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list',
-            'bold', 'italic', 'lead', 'small',
-            'link', 'media',
-        ],
-        'minimal' => [
-            'bold', 'italic', 'link', 'bullet-list', 'ordered-list',
-        ],
+        'simple' => ['heading', 'hr', 'bullet-list', 'ordered-list', 'checked-list', '|', 'bold', 'italic', 'lead', 'small', '|', 'link', 'media'],
+        'minimal' => ['bold', 'italic', 'link', 'bullet-list', 'ordered-list'],
+        'none' => [],
     ],
 
     /*
@@ -52,8 +46,8 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    //    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
-    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
+    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
+//    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
     'link_action' => FilamentTiptapEditor\Actions\LinkAction::class,
 
     /*
