@@ -10,6 +10,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class TestBlockComponent extends Component implements HasForms, HasActions
@@ -19,14 +20,19 @@ class TestBlockComponent extends Component implements HasForms, HasActions
 
     public array $data = [];
 
-    public function form(Form $form): Form
+    public function mount(): void
     {
-        return $form
-            ->schema([
-                TextInput::make('name')
-            ])
-            ->statePath('data');
+//        $this->form->fill();
     }
+//
+//    public function form(Form $form): Form
+//    {
+//        return $form
+//            ->schema([
+//                TextInput::make('name')
+//            ])
+//            ->statePath('data');
+//    }
 
     public function TestAction(): Action
     {
@@ -34,7 +40,14 @@ class TestBlockComponent extends Component implements HasForms, HasActions
             ->form([
                 TextInput::make('name')
             ])
-            ->action(fn ($data) => dd($data));
+            ->fillForm($this->data)
+            ->action(fn ($data) => $this->data = $data);
+    }
+
+    #[On('close-modal')]
+    public function updateEditorBlock(): void
+    {
+        $this->dispatch('update-block', data: $this->data);
     }
 
     public function render(): View

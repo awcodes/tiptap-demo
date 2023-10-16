@@ -3,11 +3,18 @@
         I'm a livewire component
     </x-filament::section.heading>
 
-    {{ $this->form }}
+    <div class="mt-4">
+        <p>Name: {{ $data['name'] ?? 'empty' }}</p>
+{{--        {{ $this->form }}--}}
+    </div>
 
-    {{ $this->testAction }}
+    <div class="mt-4">
+        {{ $this->testAction }}
+    </div>
 
     @teleport('body')
+    <div wire:key="{{ 'block.' . $this->getId() }}" wire:ignore.self>
     <x-filament-actions::modals />
+    </div>
     @endteleport
 </x-filament::section>

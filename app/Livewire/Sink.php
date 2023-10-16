@@ -25,7 +25,7 @@ class Sink extends Component implements HasForms, HasActions
     public function mount(): void
     {
         $this->form->fill([
-            'default' => '<p></p><h2>Praesentium Consequuntur Qui Repudiandae Quo Deserunt Sed</h2><p>Provident <a href="https://filamentphp.com" as_button="false">architecto et recusandae</a> nulla et sint voluptate. Est vero nisi nulla libero. Dolor <a href="https://google.com">necessitatibus consequuntur</a> occaecati quae porro sed quisquam. Deleniti occaecati tenetur quisquam et odio necessitatibus. Blanditiis ut quia perspiciatis.</p><pre class="hljs"><code>export default function testComponent({
+            'default' => '<p></p><custom-block data-block-type="blocks.test" data-block-data="{&quot;name&quot;:&quot;asdasdf&quot;}"></custom-block><h2>Praesentium Consequuntur Qui Repudiandae Quo Deserunt Sed</h2><p>Provident <a href="https://filamentphp.com" as_button="false">architecto et recusandae</a> nulla et sint voluptate. Est vero nisi nulla libero. Dolor <a href="https://google.com">necessitatibus consequuntur</a> occaecati quae porro sed quisquam. Deleniti occaecati tenetur quisquam et odio necessitatibus. Blanditiis ut quia perspiciatis.</p><pre class="hljs"><code>export default function testComponent({
     state,
 }) {
     return {
@@ -131,8 +131,7 @@ class Sink extends Component implements HasForms, HasActions
         return $form
             ->statePath('data')
             ->schema([
-                TiptapEditor::make('default')
-                    ->floatingMenuTools(['grid']),
+                TiptapEditor::make('default'),
 //                TiptapEditor::make('simple')
 //                    ->output(TiptapOutput::Json)
 //                    ->profile('simple'),

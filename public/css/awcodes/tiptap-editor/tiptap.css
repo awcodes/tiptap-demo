@@ -517,6 +517,11 @@ SOFTWARE.
   outline: rgba(var(--gray-900), 1) dashed 2px;
 }
 
+.tiptap-editor .ProseMirror [data-block-type].ProseMirror-selectednode {
+  border-radius: 0.75rem;
+  outline: rgba(var(--gray-900), 1) dashed 2px;
+}
+
 .tiptap-editor .ProseMirror table {
   border-collapse: collapse;
   margin: 0;
@@ -834,6 +839,10 @@ SOFTWARE.
 }
 
 .dark .tiptap-editor .ProseMirror img.ProseMirror-selectednode {
+  outline-color: rgba(var(--gray-400), 1);
+}
+
+.dark .tiptap-editor .ProseMirror [data-block-type].ProseMirror-selectednode {
   outline-color: rgba(var(--gray-400), 1);
 }
 

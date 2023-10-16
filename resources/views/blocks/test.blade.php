@@ -1,3 +1,3 @@
-<div contenteditable="false">
+<x-filament-tiptap-editor::block>
     <livewire:test-block-component />
-</div>
+</x-filament-tiptap-editor::block>
