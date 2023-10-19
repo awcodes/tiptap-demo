@@ -5,6 +5,7 @@
 
     <div class="mt-4">
         <p>Name: {{ $data['name'] ?? 'empty' }}</p>
+        <p style="color: {{ $data['suit_color'] ?? 'inherit' }}">Suit Color: {{ $data['suit_color'] ?? 'empty' }}</p>
 {{--        {{ $this->form }}--}}
     </div>
 
@@ -13,8 +14,8 @@
     </div>
 
     @teleport('body')
-    <div wire:key="{{ 'block.' . $this->getId() }}" wire:ignore.self>
-    <x-filament-actions::modals />
-    </div>
+        <div wire:key="{{ 'block.' . $this->getId() }}" wire:ignore.self>
+            <x-filament-actions::modals />
+        </div>
     @endteleport
 </x-filament::section>

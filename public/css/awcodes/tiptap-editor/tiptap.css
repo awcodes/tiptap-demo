@@ -517,7 +517,7 @@ SOFTWARE.
   outline: rgba(var(--gray-900), 1) dashed 2px;
 }
 
-.tiptap-editor .ProseMirror [data-block-type].ProseMirror-selectednode {
+.tiptap-editor .ProseMirror [data-block-view].ProseMirror-selectednode {
   border-radius: 0.75rem;
   outline: rgba(var(--gray-900), 1) dashed 2px;
 }
@@ -842,7 +842,7 @@ SOFTWARE.
   outline-color: rgba(var(--gray-400), 1);
 }
 
-.dark .tiptap-editor .ProseMirror [data-block-type].ProseMirror-selectednode {
+.dark .tiptap-editor .ProseMirror [data-block-view].ProseMirror-selectednode {
   outline-color: rgba(var(--gray-400), 1);
 }
 
