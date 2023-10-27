@@ -9,4 +9,6 @@
         </div>
     </form>
     <x-filament-actions::modals />
+
+    {{ $this->sinkInfolist }}
 </div>

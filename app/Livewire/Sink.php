@@ -7,14 +7,19 @@ use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
+use Filament\Infolists\Concerns\InteractsWithInfolists;
+use Filament\Infolists\Contracts\HasInfolists;
+use Filament\Infolists\Infolist;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
+use FilamentTiptapEditor\TiptapEditorEntry;
 use Livewire\Component;
 
-class Sink extends Component implements HasForms, HasActions
+class Sink extends Component implements HasForms, HasActions, HasInfolists
 {
     use InteractsWithActions;
     use InteractsWithForms;
+    use InteractsWithInfolists;
 
     protected $listeners = [
         'formSubmitted' => 'submit',
@@ -139,6 +144,15 @@ class Sink extends Component implements HasForms, HasActions
 //                TiptapEditor::make('minimal')
 //                    ->profile('minimal')
 //                    ->extraInputAttributes(['style' => 'min-height: 12rem;']),
+            ]);
+    }
+
+    public function sinkInfolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->state($this->data)
+            ->schema([
+                TiptapEditorEntry::make('default')
             ]);
     }
 
