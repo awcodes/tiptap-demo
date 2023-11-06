@@ -25,7 +25,8 @@ class BlahBlock extends Component implements HasForms
         return $form
             ->statePath('data')
             ->schema([
-                TextInput::make('test'),
+                TextInput::make('name'),
+                TextInput::make('color'),
             ]);
     }
 
@@ -33,7 +34,12 @@ class BlahBlock extends Component implements HasForms
     {
         $data = $this->form->getState();
 
-        $this->dispatch('close-modal', id: 'tiptap-bus', data: $data);
+        $preview = view('blocks.blah-block', [
+            'name' => $data['name'] ?? 'not set',
+            'color' => $data['color'] ?? 'not set'
+        ])->render();
+
+        $this->dispatch('close-modal', id: 'tiptap-bus', data: $data, preview: $preview);
     }
 
     public function render(): View
