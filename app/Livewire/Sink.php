@@ -25,7 +25,7 @@ class Sink extends Component implements HasForms, HasActions
     public function mount(): void
     {
         $this->form->fill([
-            'default' => '<p></p><h2>Praesentium Consequuntur Qui Repudiandae Quo Deserunt Sed</h2><p>Provident <a href="https://filamentphp.com" as_button="false">architecto et recusandae</a> nulla et sint voluptate. Est vero nisi nulla libero. Dolor <a href="https://google.com">necessitatibus consequuntur</a> occaecati quae porro sed quisquam. Deleniti occaecati tenetur quisquam et odio necessitatibus. Blanditiis ut quia perspiciatis.</p><pre class="hljs"><code>export default function testComponent({
+            'default' => '<p></p><tiptap-block data-settings="{&quot;id&quot;:&quot;01HENW59FZZYRCJW6R2Q1A73DG&quot;,&quot;type&quot;:&quot;batman-block&quot;,&quot;label&quot;:&quot;Batman Block&quot;,&quot;data&quot;:{&quot;name&quot;:&quot;batman&quot;,&quot;color&quot;:&quot;black&quot;},&quot;width&quot;:&quot;sm&quot;,&quot;slideOver&quot;:false}"></tiptap-block></tiptap-block><h2>Praesentium Consequuntur Qui Repudiandae Quo Deserunt Sed</h2><p>Provident <a href="https://filamentphp.com" as_button="false">architecto et recusandae</a> nulla et sint voluptate. Est vero nisi nulla libero. Dolor <a href="https://google.com">necessitatibus consequuntur</a> occaecati quae porro sed quisquam. Deleniti occaecati tenetur quisquam et odio necessitatibus. Blanditiis ut quia perspiciatis.</p><pre class="hljs"><code>export default function testComponent({
     state,
 }) {
     return {

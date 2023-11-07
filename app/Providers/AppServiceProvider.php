@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use FilamentVersions\Facades\FilamentVersions;
+use App\TiptapBlocks\BatmanBlock;
+use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,9 +14,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-//        FilamentVersions::registerNavigationView(true);
+        TiptapEditor::configureUsing(function (TiptapEditor $component) {
+            $component->blocks([
+                'batman-block' => BatmanBlock::class
+            ]);
+        });
     }
 
     /**
@@ -22,8 +28,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         config()->set('filament-peek.builderEditor.sidebarInitialWidth', '50vw');
+
+        Livewire::component('batman-block', BatmanBlock::class);
     }
 }
