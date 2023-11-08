@@ -10,6 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -28,6 +29,7 @@ class PageResource extends Resource
     public static function contentField()
     {
         return TiptapEditor::make('content')
+            ->output(TiptapOutput::Json)
             ->columnSpanFull();
     }
 

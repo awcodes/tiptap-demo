@@ -1,5 +1,5 @@
 @php
-    $page = \App\Models\Page::first();
+    $page = \App\Models\Page::latest()->first();
 @endphp
 
 <!DOCTYPE html>

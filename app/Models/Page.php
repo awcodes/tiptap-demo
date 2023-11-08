@@ -10,4 +10,8 @@ class Page extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'content' => 'array',
+    ];
 }

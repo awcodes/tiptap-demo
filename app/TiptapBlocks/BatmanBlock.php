@@ -2,20 +2,29 @@
 
 namespace App\TiptapBlocks;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use FilamentTiptapEditor\Livewire\TiptapBlock;
+use FilamentTiptapEditor\TiptapBlock;
 
 class BatmanBlock extends TiptapBlock
 {
     public string $preview = 'blocks.previews.batman';
 
-    public ?string $label = 'Batman Block';
+    public string $rendered = 'blocks.rendered.batman';
+
+    public bool $slideOver = true;
 
     public function getFormSchema(): array
     {
         return [
             TextInput::make('name'),
             TextInput::make('color'),
+            Select::make('side')
+                ->options([
+                    'good' => 'Good',
+                    'bad' => 'Bad',
+                ])
+                ->default('good')
         ];
     }
 }

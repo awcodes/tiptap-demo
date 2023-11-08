@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
     {
         TiptapEditor::configureUsing(function (TiptapEditor $component) {
             $component->blocks([
-                'batman-block' => BatmanBlock::class
+                BatmanBlock::class
             ]);
         });
     }
@@ -31,7 +31,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         config()->set('filament-peek.builderEditor.sidebarInitialWidth', '50vw');
-
-        Livewire::component('batman-block', BatmanBlock::class);
     }
 }
