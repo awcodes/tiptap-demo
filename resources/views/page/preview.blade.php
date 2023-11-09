@@ -13,7 +13,9 @@
             </header>
         </div>
         <main class="prose prose-invert antialiased text-white bg-gray-900 py-8 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8">
-            {!! $page->content !!}
+            @if ($page->content)
+                {!! tiptap_converter()->asHTML($page->content) !!}
+            @endif
         </main>
     </body>
 </html>

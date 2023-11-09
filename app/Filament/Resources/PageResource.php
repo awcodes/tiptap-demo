@@ -3,28 +3,31 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Pboivin\FilamentPeek\Forms\Actions\InlinePreviewAction;
-use Pboivin\FilamentPeek\Forms\Components\PreviewLink;
 use Pboivin\FilamentPeek\Pages\Concerns\HasPreviewModal;
 
 class PageResource extends Resource
 {
     use HasPreviewModal;
+    use Translatable;
 
     protected static ?string $model = Page::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function getTranslatableLocales(): array
+    {
+        return ['en', 'es', 'fr'];
+    }
 
     public static function contentField()
     {

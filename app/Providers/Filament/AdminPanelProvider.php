@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -35,6 +36,11 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::Sky,
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
+            ->navigationItems([
+                NavigationItem::make('Visit Site')
+                    ->url('/', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-globe-alt')
+            ])
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make(),
                 FilamentPeekPlugin::make(),

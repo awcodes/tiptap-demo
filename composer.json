@@ -5,6 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "awcodes/filament-curator": "^3.1",
         "awcodes/filament-tiptap-editor": "*",
         "filament/filament": "^3.0",
         "filament/spatie-laravel-translatable-plugin": "^3.0",
@@ -15,6 +16,7 @@
         "pboivin/filament-peek": "2.x-dev"
     },
     "require-dev": {
+        "awcodes/html-faker": "^0.1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",

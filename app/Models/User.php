@@ -3,21 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Awcodes\Curator\Models\Media;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Spatie\Translatable\HasTranslations;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use HasTranslations;
-
-    public array $translatable = ['name', 'bio'];
 
     /**
      * The attributes that are mass assignable.
@@ -31,7 +27,6 @@ class User extends Authenticatable
         'bio',
         'notes',
         'social',
-        'avatar_id',
     ];
 
     /**
@@ -61,8 +56,8 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function avatar(): HasOne
+    public function canAccessPanel(Panel $panel): bool
     {
-        return $this->hasOne(Media::class, 'id', 'avatar_id');
+        return true;
     }
 }

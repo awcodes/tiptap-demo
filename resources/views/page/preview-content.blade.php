@@ -8,7 +8,9 @@
     </head>
     <body class="antialiased text-white bg-gray-900">
         <main class="prose prose-invert antialiased text-white bg-gray-900 py-8 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8">
-            {!! $content !!}
+            @if ($content)
+                {!! tiptap_converter()->asHTML($content) !!}
+            @endif
         </main>
     </body>
 </html>

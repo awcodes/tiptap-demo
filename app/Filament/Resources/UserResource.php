@@ -8,7 +8,6 @@ use App\Filament\Resources\UserResource\Pages\ListUsers;
 use App\Filament\Resources\UserResource\RelationManagers\PostsRelationManager;
 use App\Models\User;
 use Filament\Forms;
-use Filament\Resources\Concerns\Translatable;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
@@ -18,22 +17,9 @@ use Illuminate\Support\Facades\Hash;
 
 class UserResource extends Resource
 {
-    use Translatable;
-
     protected static ?string $model = User::class;
 
-    protected static ?string $label = 'User';
-
-    protected static ?string $navigationGroup = 'Filament Shield';
-
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
-
-    protected static ?string $recordTitleAttribute = 'name';
-
-    public static function getTranslatableLocales(): array
-    {
-        return ['en', 'es', 'fr'];
-    }
 
     public static function form(Form $form): Form
     {
@@ -47,17 +33,20 @@ class UserResource extends Resource
                         Forms\Components\TextInput::make('email')
                             ->required()
                             ->email()
-                            ->unique(User::class, 'email', fn ($record) => $record),
+                            ->unique(User::class, 'email', ignoreRecord: true),
                         Forms\Components\TextInput::make('password')
                             ->columnSpan('full')
-                            ->visible(fn ($context) => $context === 'create')
+                            ->visibleOn('create')
                             ->required()
-                            ->dehydrateStateUsing(function ($state) {
-                                return Hash::make($state);
-                            }),
+                            ->dehydrateStateUsing(fn ($state): string => Hash::make($state)),
                         TiptapEditor::make('bio')
                             ->profile('simple')
                             ->columnSpan('full'),
+                        TiptapEditor::make('notes')
+                            ->profile('simple')
+                            ->columnSpan('full'),
+                        Forms\Components\KeyValue::make('social')
+                            ->columnSpan('full')
                     ])->columns(['md' => 2]),
 
             ]);
