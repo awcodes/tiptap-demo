@@ -21,10 +21,10 @@ class BatmanBlock extends TiptapBlock
             TextInput::make('color'),
             Select::make('side')
                 ->options([
-                    'good' => 'Good',
-                    'bad' => 'Bad',
+                    'Hero' => 'Hero',
+                    'Villain' => 'Villain',
                 ])
-                ->default('good')
+                ->default('Hero')
         ];
     }
 }
