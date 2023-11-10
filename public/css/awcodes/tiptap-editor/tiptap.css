@@ -323,11 +323,15 @@ SOFTWARE.
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   line-height: 1;
+  --tw-text-opacity: 1;
+  color: rgba(var(--gray-900), var(--tw-text-opacity));
 }
 
 :is(.dark .tiptap-editor .ProseMirror .tiptap-block-wrapper .tiptap-block .tiptap-block-heading) {
   --tw-bg-opacity: 1;
   background-color: rgba(var(--gray-950), var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .tiptap-editor .ProseMirror .tiptap-block-wrapper .tiptap-block .tiptap-block-heading .tiptap-block-title {

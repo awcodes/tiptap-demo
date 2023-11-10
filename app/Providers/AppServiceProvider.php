@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\TiptapBlocks\BatmanBlock;
+use App\TiptapBlocks\StaticBlock;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,9 +17,12 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         TiptapEditor::configureUsing(function (TiptapEditor $component) {
-            $component->blocks([
-                BatmanBlock::class
-            ]);
+            $component
+                ->blocks([
+                    BatmanBlock::class,
+                    StaticBlock::class,
+                    \FilamentTiptapEditor\Blocks\VideoBlock::class,
+                ]);
         });
     }
 
