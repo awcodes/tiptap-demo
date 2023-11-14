@@ -12,6 +12,8 @@ class BatmanBlock extends TiptapBlock
 
     public string $rendered = 'blocks.rendered.batman';
 
+    public bool $slideOver = true;
+
     public function getFormSchema(): array
     {
         return [

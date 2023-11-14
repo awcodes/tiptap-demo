@@ -28,7 +28,10 @@ class PageFactory extends Factory
 
         return [
             'title' => str($this->faker->words(rand(3,5), true))->title(),
-            'content' => json_decode($jsonContent, true),
+            'content' => [
+                'en' => json_decode($jsonContent, true),
+                'es' => json_decode($jsonContent, true),
+            ],
         ];
     }
 }

@@ -47,6 +47,9 @@ class PageResource extends Resource
                         ->label('Preview Content')
                         ->builderPreview('content'),
                 ]),
+//                TiptapEditor::make('content_two')
+//                    ->output(TiptapOutput::Json)
+//                    ->columnSpanFull(),
                 self::contentField(),
             ])->columns(1);
     }

@@ -43,7 +43,7 @@ class UserResource extends Resource
                             ->profile('simple')
                             ->columnSpan('full'),
                         TiptapEditor::make('notes')
-                            ->profile('simple')
+                            ->profile('minimal')
                             ->columnSpan('full'),
                         Forms\Components\KeyValue::make('social')
                             ->columnSpan('full')

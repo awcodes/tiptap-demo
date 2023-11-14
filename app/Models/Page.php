@@ -15,6 +15,7 @@ class Page extends Model
 
     public array $translatable = [
         'title',
+        'content',
     ];
 
     protected $casts = [
