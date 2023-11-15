@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\TiptapBlocks\BatmanBlock;
 use App\TiptapBlocks\StaticBlock;
+use App\TiptapBlocks\VideoBlock;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
                 ->blocks([
                     BatmanBlock::class,
                     StaticBlock::class,
-                    \FilamentTiptapEditor\Blocks\VideoBlock::class,
+                    VideoBlock::class,
                 ]);
         });
     }
