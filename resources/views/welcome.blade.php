@@ -14,6 +14,8 @@
     </head>
     <body class="prose prose-invert antialiased text-white bg-gray-900 py-12 max-w-6xl mx-auto sm:px-6 lg:px-8">
         <h1>{{ $page->title }}</h1>
-        {!! tiptap_converter()->asHTML($page->content) !!}
+        @if ($page->content)
+            {!! tiptap_converter()->asHTML($page->content) !!}
+        @endif
     </body>
 </html>

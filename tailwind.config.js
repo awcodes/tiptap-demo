@@ -5,6 +5,7 @@ module.exports = {
     darkMode: 'class',
   content: [
       './resources/views/**/*.blade.php',
+      './vendor/awcodes/filament-tiptap-editor/resources/views/tiptap-block-preview.blade.php',
   ],
   theme: {
     extend: {
