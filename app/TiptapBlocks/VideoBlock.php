@@ -19,6 +19,8 @@ class VideoBlock extends TiptapBlock
 {
     public string $preview = 'filament-tiptap-editor::components.blocks.previews.video';
 
+    public string $rendered = 'filament-tiptap-editor::components.blocks.previews.video';
+
     public string $width = 'lg';
 
     public bool $slideOver = true;
