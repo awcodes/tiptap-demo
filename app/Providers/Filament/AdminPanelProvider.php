@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Awcodes\Curator\CuratorPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -31,7 +32,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login(\App\Filament\Pages\Auth\Login::class)
-            ->favicon('https://res.cloudinary.com/aw-codes/image/upload/v1641838624/dartology/icon.svg')
+            ->favicon('/favicon.svg')
             ->colors([
                 'primary' => Color::Sky,
             ])
@@ -44,6 +45,7 @@ class AdminPanelProvider extends PanelProvider
             ->plugins([
                 SpatieLaravelTranslatablePlugin::make(),
                 FilamentPeekPlugin::make(),
+                CuratorPlugin::make(),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

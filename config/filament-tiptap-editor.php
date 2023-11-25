@@ -47,8 +47,8 @@ return [
     |--------------------------------------------------------------------------
     |
     */
-    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
-//    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
+//    'media_action' => FilamentTiptapEditor\Actions\MediaAction::class,
+    'media_action' => Awcodes\Curator\Actions\MediaAction::class,
     'link_action' => FilamentTiptapEditor\Actions\LinkAction::class,
 
     /*
