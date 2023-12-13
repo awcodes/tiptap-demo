@@ -18,6 +18,8 @@ return new class extends Migration
 
             $table->string('title');
             $table->longText('content')->nullable();
+            $table->longText('repeater_content')->nullable();
+            $table->longText('builder_content')->nullable();
 
             $table->timestamps();
         });

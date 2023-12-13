@@ -41,6 +41,10 @@ class PageResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Actions::make([
+                    Forms\Components\Actions\Action::make('test_update_content')
+                        ->action(fn(Forms\Set $set) => $set('content', tiptap_converter()->asJSON('<p>updated content from $set</p>', decoded: true)))
+                ]),
                 Forms\Components\TextInput::make('title')
                     ->required(),
                 Forms\Components\Actions::make([

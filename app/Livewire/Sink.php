@@ -31,8 +31,12 @@ class Sink extends Component implements HasForms, HasActions
             'json_content' => ContentHelper::json(),
             'repeater_test' => [
                 [
-                    'repeater_html_content' => ContentHelper::html(),
-                    'repeater_json_content' => ContentHelper::json(),
+//                    'repeater_html_content' => ContentHelper::html(),
+//                    'repeater_json_content' => ContentHelper::json(),
+                    'repeater_html_content' => null,
+                ],
+                [
+                    'repeater_html_content' => null,
                 ]
             ]
         ]);
@@ -43,14 +47,15 @@ class Sink extends Component implements HasForms, HasActions
         return $form
             ->statePath('data')
             ->schema([
-                TiptapEditor::make('html_content'),
+                TiptapEditor::make('html_content')
+                    ->mergeTags(['email', 'name', 'phone'])
+                    ->showMergeTagsInBlocksPanel(false),
                 TiptapEditor::make('json_content')
                     ->output(TiptapOutput::Json),
                 Repeater::make('repeater_test')
+                    ->reorderableWithButtons()
                     ->schema([
                         TiptapEditor::make('repeater_html_content'),
-                        TiptapEditor::make('repeater_json_content')
-                            ->output(TiptapOutput::Json),
                     ])
 //                TiptapEditor::make('minimal')
 //                    ->profile('minimal')
