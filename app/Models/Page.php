@@ -20,5 +20,7 @@ class Page extends Model
 
     protected $casts = [
         'content' => 'array',
+        'repeater_content' => 'array',
+        'builder_content' => 'array',
     ];
 }

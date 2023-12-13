@@ -52,10 +52,22 @@ class PageResource extends Resource
                         ->label('Preview Content')
                         ->builderPreview('content'),
                 ]),
-//                TiptapEditor::make('content_two')
-//                    ->output(TiptapOutput::Json)
-//                    ->columnSpanFull(),
                 self::contentField(),
+                Forms\Components\Repeater::make('repeater_content')
+                    ->schema([
+                        TiptapEditor::make('content')
+                            ->output(TiptapOutput::Json)
+                            ->columnSpanFull()
+                    ]),
+                Forms\Components\Builder::make('builder_content')
+                    ->blocks([
+                        Forms\Components\Builder\Block::make('body')
+                            ->schema([
+                                TiptapEditor::make('content')
+                                    ->output(TiptapOutput::Json)
+                                    ->columnSpanFull()
+                            ]),
+                    ])
             ])->columns(1);
     }
 
