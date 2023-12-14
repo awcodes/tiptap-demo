@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use Awcodes\HtmlFaker\HtmlFaker;
+use FilamentTiptapEditor\TiptapFaker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,13 +20,13 @@ class PostFactory extends Factory
         return [
             'user_id' => 1,
             'title' => str($this->faker->words(rand(3,5), true))->title(),
-            'content' => HtmlFaker::make()
+            'content' => TiptapFaker::make()
                 ->heading()
                 ->paragraphs(2)
                 ->heading(3)
                 ->paragraphs(3, true)
                 ->image()
-                ->generate(),
+                ->asHTML(),
         ];
     }
 }

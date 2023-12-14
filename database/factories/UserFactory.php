@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use Awcodes\HtmlFaker\HtmlFaker;
+use FilamentTiptapEditor\TiptapFaker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -26,8 +26,8 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'bio' => HtmlFaker::make()->heading()->paragraphs()->generate(),
-            'notes' => HtmlFaker::make()->paragraphs(2)->generate(),
+            'bio' => TiptapFaker::make()->heading()->paragraphs()->image()->asHTML(),
+            'notes' => TiptapFaker::make()->paragraphs(2)->asHTML(),
             'social' => [
                 'facebook' => $username,
                 'twitter' => $username,

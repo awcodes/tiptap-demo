@@ -11,6 +11,7 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
+use FilamentTiptapEditor\TiptapFaker;
 use Livewire\Component;
 
 class Sink extends Component implements HasForms, HasActions
@@ -28,7 +29,7 @@ class Sink extends Component implements HasForms, HasActions
     {
         $this->form->fill([
             'html_content' => ContentHelper::html(),
-            'json_content' => ContentHelper::json(),
+            'json_content' => TiptapFaker::make()->sink()->asJSON(true),
             'repeater_test' => [
                 [
 //                    'repeater_html_content' => ContentHelper::html(),

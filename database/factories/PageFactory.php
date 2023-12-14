@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use Awcodes\HtmlFaker\HtmlFaker;
+use FilamentTiptapEditor\TiptapFaker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,20 +17,19 @@ class PageFactory extends Factory
      */
     public function definition(): array
     {
-        $content = HtmlFaker::make()
+        $content = TiptapFaker::make()
             ->heading()
             ->paragraphs(2)
             ->heading(3)
             ->paragraphs(3, true)
-            ->generate();
-
-        $jsonContent = tiptap_converter()->asJSON($content);
+            ->details()
+            ->asJSON(decoded: true);
 
         return [
             'title' => str($this->faker->words(rand(3,5), true))->title(),
             'content' => [
-                'en' => json_decode($jsonContent, true),
-                'es' => json_decode($jsonContent, true),
+                'en' => $content,
+                'es' => $content,
             ],
         ];
     }

@@ -54,10 +54,11 @@ class PageResource extends Resource
                 ]),
                 self::contentField(),
                 Forms\Components\Repeater::make('repeater_content')
+                    ->reorderableWithButtons()
                     ->schema([
                         TiptapEditor::make('content')
                             ->output(TiptapOutput::Json)
-                            ->columnSpanFull()
+                            ->columnSpanFull(),
                     ]),
                 Forms\Components\Builder::make('builder_content')
                     ->blocks([
@@ -90,7 +91,8 @@ class PageResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array
