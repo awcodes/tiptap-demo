@@ -9,6 +9,7 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
+use Filament\Forms;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use FilamentTiptapEditor\TiptapFaker;
@@ -48,6 +49,16 @@ class Sink extends Component implements HasForms, HasActions
         return $form
             ->statePath('data')
             ->schema([
+                Forms\Components\Actions::make([
+                    Forms\Components\Actions\Action::make('test_modal_content')
+                        ->form([
+                            TiptapEditor::make('modal_content')
+                                ->output(TiptapOutput::Json)
+                                ->default(fn () => ContentHelper::json())
+                                ->columnSpanFull(),
+                        ])
+                        ->action(fn() => null)
+                ]),
                 TiptapEditor::make('html_content')
                     ->mergeTags(['email', 'name', 'phone'])
                     ->showMergeTagsInBlocksPanel(false),
