@@ -83,6 +83,7 @@ class PageResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -107,6 +108,7 @@ class PageResource extends Resource
         return [
             'index' => Pages\ListPages::route('/'),
             'create' => Pages\CreatePage::route('/create'),
+            'view' => Pages\ViewPage::route('/{record}'),
             'edit' => Pages\EditPage::route('/{record}/edit'),
         ];
     }
