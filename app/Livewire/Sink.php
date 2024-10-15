@@ -33,7 +33,7 @@ class Sink extends Component implements HasForms, HasActions
     {
         $this->form->fill([
             'html_content' => ContentHelper::html(),
-            'json_content' => TiptapFaker::make()->sink()->asJSON(true),
+//            'json_content' => TiptapFaker::make()->sink()->asJSON(true),
             'repeater_test' => [
                 [
 //                    'repeater_html_content' => ContentHelper::html(),
@@ -68,13 +68,13 @@ class Sink extends Component implements HasForms, HasActions
                 TiptapEditor::make('html_content')
                     ->mergeTags(['email', 'name', 'phone'])
                     ->showMergeTagsInBlocksPanel(false),
-                TiptapEditor::make('json_content')
-                    ->output(TiptapOutput::Json),
-                Repeater::make('repeater_test')
-                    ->reorderableWithButtons()
-                    ->schema([
-                        TiptapEditor::make('repeater_html_content'),
-                    ])
+//                TiptapEditor::make('json_content')
+//                    ->output(TiptapOutput::Json),
+//                Repeater::make('repeater_test')
+//                    ->reorderableWithButtons()
+//                    ->schema([
+//                        TiptapEditor::make('repeater_html_content'),
+//                    ])
 //                TiptapEditor::make('minimal')
 //                    ->profile('minimal')
 //                    ->extraInputAttributes(['style' => 'min-height: 12rem;']),

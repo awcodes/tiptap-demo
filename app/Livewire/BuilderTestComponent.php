@@ -2,20 +2,20 @@
 
 namespace App\Livewire;
 
+use App\TiptapBlocks\BatmanBlock;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
-use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Builder;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
+use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Contracts\View\View;
 use JetBrains\PhpStorm\NoReturn;
 use Livewire\Component;
 
-class RepeaterTestComponent extends Component implements HasForms, HasActions
+class BuilderTestComponent extends Component implements HasForms, HasActions
 {
     use InteractsWithForms;
     use InteractsWithActions;
@@ -28,16 +28,7 @@ class RepeaterTestComponent extends Component implements HasForms, HasActions
 
     public function mount(): void
     {
-        $this->form->fill([
-            'repeater_test' => [
-                [
-                    'content' => null,
-                ],
-                [
-                    'content' => null,
-                ]
-            ]
-        ]);
+        $this->form->fill();
     }
 
     public function form(Form $form): Form
@@ -45,13 +36,16 @@ class RepeaterTestComponent extends Component implements HasForms, HasActions
         return $form
             ->statePath('data')
             ->schema([
-                Repeater::make('repeater_test')
-                    ->reorderableWithButtons()
-                    ->schema([
-                        TiptapEditor::make('content')
-                            ->label(fn ($component) => $component->getStatePath()),
-//                        RichEditor::make('rich_editor'),
-//                        MarkdownEditor::make('markdown_editor'),
+                Builder::make('builder_test')
+                    ->blocks([
+                        Builder\Block::make('builder_test_block')
+                            ->schema([
+                                TiptapEditor::make('content')
+                                    ->output(TiptapOutput::Json)
+                                    ->blocks([
+                                        BatmanBlock::class,
+                                    ]),
+                            ])
                     ])
             ])
             ->columns(1);

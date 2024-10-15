@@ -3,6 +3,8 @@
 namespace App\Providers\Filament;
 
 use Awcodes\Curator\CuratorPlugin;
+use Filament\FontProviders\GoogleFontProvider;
+use Filament\FontProviders\LocalFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -36,6 +38,8 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Sky,
             ])
+            ->font('Inter', provider: LocalFontProvider::class)
+//            ->spa()
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->navigationItems([
                 NavigationItem::make('Visit Site')

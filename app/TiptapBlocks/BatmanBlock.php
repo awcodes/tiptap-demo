@@ -2,10 +2,10 @@
 
 namespace App\TiptapBlocks;
 
-use Awcodes\Curator\Components\Forms\CuratorPicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use FilamentTiptapEditor\TiptapBlock;
+use FilamentTiptapEditor\TiptapEditor;
 
 class BatmanBlock extends TiptapBlock
 {
@@ -18,7 +18,7 @@ class BatmanBlock extends TiptapBlock
         return [
             TextInput::make('name'),
             TextInput::make('color'),
-            CuratorPicker::make('image'),
+            TiptapEditor::make('description'),
             Select::make('side')
                 ->options([
                     'Hero' => 'Hero',

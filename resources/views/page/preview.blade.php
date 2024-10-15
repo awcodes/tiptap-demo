@@ -14,7 +14,11 @@
         </div>
         <main class="prose prose-invert antialiased text-white bg-gray-900 py-8 px-4 max-w-6xl mx-auto sm:px-6 lg:px-8">
             @if ($page->content)
-                {!! tiptap_converter()->asHTML($page->content) !!}
+                {!! tiptap_converter()->mergeTagsMap([
+                        'name' => 'test',
+                        'email' => 'test@example.com',
+                        'phone' => '(912) 867-5309'
+                    ])->asHTML($page->content) !!}
             @endif
         </main>
     </body>

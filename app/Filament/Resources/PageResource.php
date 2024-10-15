@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
+use App\TiptapBlocks\BatmanBlock;
 use Awcodes\Curator\Components\Forms\CuratorPicker;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -34,6 +35,7 @@ class PageResource extends Resource
     {
         return TiptapEditor::make('content')
             ->output(TiptapOutput::Json)
+            ->mergeTags(['email', 'name', 'phone'])
             ->columnSpanFull();
     }
 
@@ -66,6 +68,9 @@ class PageResource extends Resource
                             ->schema([
                                 TiptapEditor::make('content')
                                     ->output(TiptapOutput::Json)
+                                    ->blocks([
+                                        BatmanBlock::class,
+                                    ])
                                     ->columnSpanFull()
                             ]),
                     ])

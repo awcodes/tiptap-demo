@@ -17,11 +17,16 @@
             <div class="lg:col-span-3">
                 <h1>{{ $page->title }}</h1>
                 @if ($page->content)
-                    {!! tiptap_converter()->asHTML($page->content, toc: true, maxDepth: 4) !!}
+                    {!! tiptap_converter()->mergeTagsMap([
+                        'name' => 'test',
+                        'email' => 'test@example.com',
+                        'phone' => '(912) 867-5309'
+                    ])->asHTML($page->content, toc: true, maxDepth: 4) !!}
                 @endif
             </div>
             <div class="lg:col-span-1">
-                {!! tiptap_converter()->asTOC($page->content, maxDepth: 4); !!}
+{{--                {!! tiptap_converter()->asTOC($page->content, maxDepth: 4); !!}--}}
+                <x-filament-tiptap-editor::table-of-contents :headings="tiptap_converter()->asTOC($page->content, array: true)" />
             </div>
         </div>
     </body>
