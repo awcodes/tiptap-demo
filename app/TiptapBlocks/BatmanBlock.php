@@ -19,6 +19,7 @@ class BatmanBlock extends TiptapBlock
             TextInput::make('name'),
             TextInput::make('color'),
             TiptapEditor::make('description'),
+            TiptapEditor::make('description2'),
             Select::make('side')
                 ->options([
                     'Hero' => 'Hero',
