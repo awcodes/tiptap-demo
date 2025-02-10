@@ -40,6 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->font('Inter', provider: LocalFontProvider::class)
 //            ->spa()
+            ->sidebarCollapsibleOnDesktop()
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->navigationItems([
                 NavigationItem::make('Visit Site')

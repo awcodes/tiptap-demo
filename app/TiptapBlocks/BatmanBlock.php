@@ -16,10 +16,20 @@ class BatmanBlock extends TiptapBlock
     public function getFormSchema(): array
     {
         return [
-            TextInput::make('name'),
-            TextInput::make('color'),
-            TiptapEditor::make('description'),
-            TiptapEditor::make('description2'),
+            Select::make('name')
+                ->options([
+                    'batman' => 'Batman',
+                    'robin' => 'Robin',
+                    'joker' => 'Joker',
+                    'poison-ivy' => 'Poison Ivy',
+                ]),
+            Select::make('color')
+                ->options([
+                    'black' => 'Black',
+                    'yellow' => 'Yellow',
+                    'purple' => 'Purple',
+                    'green' => 'Green',
+                ]),
             Select::make('side')
                 ->options([
                     'Hero' => 'Hero',

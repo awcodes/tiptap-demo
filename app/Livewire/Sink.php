@@ -9,13 +9,12 @@ use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
 use Filament\Forms\Components\Actions;
 use Filament\Forms\Components\Actions\Action;
-use Filament\Forms\Components\Repeater;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
-use FilamentTiptapEditor\TiptapFaker;
 use Livewire\Component;
 
 class Sink extends Component implements HasForms, HasActions
@@ -63,10 +62,18 @@ class Sink extends Component implements HasForms, HasActions
                                    StaticBlock::class,
                                ])
                                ->columnSpanFull(),
-                       ])
+                       ]),
+                    Action::make('test_update_content')
+                        ->action(fn(Set $set) => $set('html_content', tiptap_converter()->asJSON('<p>updated content from $set</p>', decoded: true)))
                 ]),
                 TiptapEditor::make('html_content')
                     ->mergeTags(['email', 'name', 'phone'])
+                    ->disableFloatingMenus()
+                    ->placeholder('test')
+//                    ->nodePlaceholders([
+//                        'paragraph' => 'Start writing your paragraph...',
+//                        'heading' => 'Insert a heading...',
+//                    ])
 //                    ->customDocument('heading block*')
                     ->showMergeTagsInBlocksPanel(false),
 //                TiptapEditor::make('json_content')

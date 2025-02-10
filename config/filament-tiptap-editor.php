@@ -113,4 +113,10 @@ return [
             'parser' => \App\TiptapExtensions\Hero::class,
         ],
     ],
+
+    'preset_colors' => [
+        'primary' => '#f59e0b',
+        'secondary' => '#14b8a6',
+        'red' => '#ef4444',
+    ]
 ];

@@ -3,7 +3,7 @@
         @php
             echo match($name) {
                 'robin' => '🐤',
-                'ivy' => '🥀',
+                'poison-ivy' => '🥀',
                 'joker' => '🤡',
                 default => '🦇'
             }
